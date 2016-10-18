@@ -2,11 +2,14 @@ package mybankmachine;
 
 import javax.swing.*;
 
+/**
+ * 
+ */
 public class MyBankMachine {
   public static void main(String[] args) {
-    MyBankMachine ba;
+    ATM ba;
 
-    //Ask for random phone
+    //Ask for random bank
     String choice = JOptionPane.showInputDialog(
       "Creating bank object:\n"
       + "1 - Enter the type of bank you use\n"
@@ -25,6 +28,22 @@ public class MyBankMachine {
         + " bank.");
       ba = new ATM();
     }
+    
+    //Ask for the initial balance
+    double myBalance = Double.parseDouble(JOptionPane.showInputDialog(
+        "What is your bank balance?"));
+        ba.setBalance(myBalance);
+    
+    //Ask for the amount of the annual interest rate
+    double myAnnualInterestRate = Double.parseDouble(JOptionPane.showInputDialog(
+        "What is your annual iterest rate?"));
+        ba.setAIR(myAnnualInterestRate);
+    
+    //Ask for the number of days to leave the balance invested
+    int myTime = Integer.parseInt(JOptionPane.showInputDialog(
+        "How many days for the investement?"));
+        ba.setTime(myTime);
+    
 /*
     //Menu to add apps
     boolean done = false;
@@ -36,12 +55,12 @@ public class MyBankMachine {
       if(myApp.equalsIgnoreCase("done")){
         done = true;
       } else {
-        atm.addApp(myApp);
+        ba.addApp(myApp);
       }
     }
 
     //Display phone with app list
-    JOptionPane.showMessageDialog(null, atm);
-*/
+    JOptionPane.showMessageDialog(null, ba);
   }
+            */
 }
