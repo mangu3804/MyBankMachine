@@ -16,11 +16,12 @@ public class MyBankMachine {
     ATM ba = new ATM(bankType, myBalance); 
     
     boolean done = false;
-    while (done = false) {
+    while (done == false) {
         String choice = JOptionPane.showInputDialog(
         "ATM Menu:\n"
-        
-        + "1 : Deposit\n"
+        + "Current Balance: $"
+        + ba.showBalance()
+        + "\n1 : Deposit\n"
         + "2 : Withdraw\n"
         + "3 : Calculate daily interest\n"
         + "4 : Exit ATM");
@@ -28,21 +29,31 @@ public class MyBankMachine {
         if (choice.equals("1")) {
             double myDeposit = Double.parseDouble(JOptionPane.showInputDialog(
             "How much money do you want to deposit?"));
-            addBal();
+            ba.addBal(myDeposit);
             
         } else if (choice.equals("2")) {
             double myWithdraw = Double.parseDouble(JOptionPane.showInputDialog(
             "How much money do you want to withdraw?"));
+            ba.subtractBal(myWithdraw);
             
         } else if (choice.equals("3")) {
-            double myAnnualInterestRate = Double.parseDouble(JOptionPane.showInputDialog(
+            double myAIR = Double.parseDouble(JOptionPane.showInputDialog(
             "What is your annual iterest rate?"));
             int myTime = Integer.parseInt(JOptionPane.showInputDialog(
             "How many days for the investement?"));
+            ba.calcInterest(myBalance, myAIR, myTime);
             
-            calcInterest();
         } else if (choice.equals("4")) {
-            
+            System.exit(0);
+        } else {
+            choice = JOptionPane.showInputDialog(
+            "ATM Menu:\n"
+            + "Current Balance: $"
+            + ba.showBalance()
+            + "\n1 : Deposit\n"
+            + "2 : Withdraw\n"
+            + "3 : Calculate daily interest\n"
+            + "4 : Exit ATM");
         }
         
     }
