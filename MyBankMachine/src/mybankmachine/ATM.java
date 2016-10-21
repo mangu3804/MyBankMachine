@@ -24,19 +24,27 @@ public class ATM {
     p = balance;
   }
   
-  //Set balance
-  public void calcInterest(double myBalance, double myAIR, int myTime) {
+  //Calculate interest
+  public double calcInterest(double myBalance, double myAIR, int myTime) {
       p = myBalance;
       i = myAIR; //Set interest rate
       t = myTime; //Set number of compound periods
+      p = Math.pow((p * (1 + i)),t);
+      return p;
   }
   
   public void addBal(double balanceDep){
-      p =+ balanceDep;
+      p += balanceDep;
   }
 
-  public void remBal(double balanceWith){
-      p =+ balanceWith;
+  public void subtractBal(double balanceWith){
+      p -= balanceWith;
+  }
+  
+  //Display balance
+  public double showBalance(){
+      double balance = p;
+      return balance;
   }
 
   public String toString() {
