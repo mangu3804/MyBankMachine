@@ -19,7 +19,7 @@ public class MyBankMachine {
     while (done == false) {
         String choice = JOptionPane.showInputDialog(
         "ATM Menu:\n"
-        + "Current Balance: $"
+        + "Current " + bankType + " Balance: $"
         + ba.showBalance()
         + "\n1 : Deposit\n"
         + "2 : Withdraw\n"
