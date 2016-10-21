@@ -45,13 +45,4 @@ public class ATM {
         double balance = p;
         return balance;
     }
-
-    public String toString() {
-        String output = "The following apps are installed on your "
-                + typeOfBank + ":\n";
-        for (int i = 0; i < numApps; i++) {
-            output += "App #" + i + " - " + appList.get(i) + "\n";
-        }
-        return output;
-    }
 }
